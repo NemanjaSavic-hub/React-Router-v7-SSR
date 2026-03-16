@@ -4,12 +4,8 @@ import { cardCn } from "@rescui/card/lib/index.js";
 import cn from 'classnames';
 import jetbrainsLogo from '../../../assets/images/logos/jetbrains-logo.svg'
 
-// import { cardsData } from './data';
-
 import './index.scss';
 import { Section, Container } from '../layout';
-import fakeDB from 'fakeDB';
-import type { Route } from '../../+types/root';
 import type { HeaderCard } from '~/models/HeaderCard';
 
 interface Props { 
