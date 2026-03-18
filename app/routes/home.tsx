@@ -12,6 +12,8 @@ import type { WhyKotlinSectionType } from "~/models/WhyKotlinSectionType";
 import type { HeaderCard } from "~/models/HeaderCard";
 import type { LatestNewsFromKotlin } from "~/models/LatestNewsFromKotlin";
 import { useLoaderData } from "react-router";
+import { UsageSection } from "~/components/UsageSection/UsageSection";
+import type { Testimonial } from "~/models/Testimonial";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -23,21 +25,19 @@ type LoaderData = {
   headerCards : HeaderCard[],
   latestNewsFromKotlin: LatestNewsFromKotlin[],
   whyKotlinSections: WhyKotlinSectionType[],
-  programmingTabs: TabType[]
+  programmingTabs: TabType[],
+  testimonials: Testimonial[]
 };
 
 export async function loader({ params }: Route.LoaderArgs) : Promise<LoaderData> {
-  // const headerCards = await fakeDB.getHeaderCards();
-  // const latestNewsFromKotlin = await fakeDB.getLatestNewsFromKotlin();
-  // const whyKotlinSections = await fakeDB.getWhyKotlinSections();
-  // const programmingTabs = await fakeDB.getProgrammingTabs()
-  const [headerCards, latestNewsFromKotlin, whyKotlinSections, programmingTabs ] = await Promise.all([
+  const [headerCards, latestNewsFromKotlin, whyKotlinSections, programmingTabs, testimonials ] = await Promise.all([
     fakeDB.getHeaderCards(),
     fakeDB.getLatestNewsFromKotlin(),
     fakeDB.getWhyKotlinSections(),
-    fakeDB.getProgrammingTabs()
+    fakeDB.getProgrammingTabs(),
+    fakeDB.getTestimonials()
   ]);
-  return {headerCards, latestNewsFromKotlin, whyKotlinSections, programmingTabs};
+  return {headerCards, latestNewsFromKotlin, whyKotlinSections, programmingTabs, testimonials };
 }
 
 export default function Home() {
@@ -50,6 +50,7 @@ export default function Home() {
       <WhyKotlinSection sections={loaderData.whyKotlinSections} >
         <ProgrammingLanguage tabs={loaderData.programmingTabs} />
       </WhyKotlinSection>
+      <UsageSection testimonials={loaderData.testimonials}/>
     </div>
   </ThemeProvider>
   )
