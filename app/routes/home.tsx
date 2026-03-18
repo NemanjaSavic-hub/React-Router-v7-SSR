@@ -14,6 +14,7 @@ import type { LatestNewsFromKotlin } from "~/models/LatestNewsFromKotlin";
 import { useLoaderData } from "react-router";
 import { UsageSection } from "~/components/UsageSection/UsageSection";
 import type { Testimonial } from "~/models/Testimonial";
+import { StartSection } from "~/components/StartSection/StartSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -51,6 +52,7 @@ export default function Home() {
         <ProgrammingLanguage tabs={loaderData.programmingTabs} />
       </WhyKotlinSection>
       <UsageSection testimonials={loaderData.testimonials}/>
+      <StartSection/>
     </div>
   </ThemeProvider>
   )
