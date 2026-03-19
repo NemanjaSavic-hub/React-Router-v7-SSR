@@ -82,7 +82,9 @@ function WhyKotlinContent({sections, children}: Props) {
 export function WhyKotlinSection({sections, children}: Props) {
     return (
         <ThemeProvider theme="light">
-            <WhyKotlinContent sections={sections} children={children}/>
+            <WhyKotlinContent sections={sections}>
+            {children}
+            </WhyKotlinContent>
         </ThemeProvider>
     );
 }

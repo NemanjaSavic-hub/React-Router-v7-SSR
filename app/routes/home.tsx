@@ -15,11 +15,11 @@ import { useLoaderData } from "react-router";
 import { UsageSection } from "~/components/UsageSection/UsageSection";
 import type { Testimonial } from "~/models/Testimonial";
 import { StartSection } from "~/components/StartSection/StartSection";
+import HeaderNav from "~/components/HeaderNav/HeaderNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Kotlin Programming Language" }
   ];
 }
 type LoaderData = {
@@ -46,6 +46,7 @@ export default function Home() {
   return (
   <ThemeProvider theme="dark">
     <div className="overview-page">
+      <HeaderNav/>
       <HeaderSection cardsData={loaderData.headerCards} />;
       <LatestFromKotlinSection newsData={loaderData.latestNewsFromKotlin}/>
       <WhyKotlinSection sections={loaderData.whyKotlinSections} >

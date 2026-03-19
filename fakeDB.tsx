@@ -94,10 +94,13 @@ class FakeDb {
     },
     {
         title: <>Big, friendly and helpful<br/>community</>,
-        description:
-            'Kotlin has great support and many contributors in its fast-growing global community. ' +
-            'Enjoy the benefits of a rich ecosystem with a wide range of community libraries. ' +
-            'Help is never far away — consult extensive community resources or ask the Kotlin team directly.',
+        description: (
+        <>
+            Kotlin has great support and many contributors in its fast-growing global community. 
+            Enjoy the benefits of a rich ecosystem with a wide range of community libraries. 
+            Help is never far away — consult extensive community resources or ask the Kotlin team directly.
+        </>
+        ),
         buttonText: 'Join the community',
         buttonLink: '/community/',
         media: 'youtube',
