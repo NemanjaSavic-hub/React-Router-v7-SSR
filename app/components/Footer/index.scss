@@ -4,7 +4,8 @@ $breakpoint-tablet: 640px; //> 640 144h 32p
 $breakpoint-mobile: 448px; //> 447 253h t 32p else 16p
 $breakpoint-s-mobile: 406px; //> 285h
 $breakpoint-xs-mobile: 340px;
-$font-color: #FFFFFF;  //> 288h
+$font-color: #FFFFFF;
+$font-color-darker: var(--ktl-font-family-inter);  //> 288h
 // < 340  308h
 
 .footer{
@@ -66,6 +67,36 @@ $font-color: #FFFFFF;  //> 288h
             height: 36px;
             width: 36px;
             padding: 6px;
+        }
+    }
+    &__nav-container{
+        margin-bottom: 32px;
+        margin-top: 24px;
+        @media (min-width: $breakpoint-tablet) {
+            margin-block: 16px;
+    }
+    }
+    &__ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            margin-right: 12px;
+            padding-right: 12px;
+            a{
+                color: $font-color-darker;
+                font-weight: 300;
+            }
+        }
+        li::after{
+            content: "|";
+            position: relative;
+            left: 12px;
+            font-size: small;
+            font-weight: 200;
+            color: #ffffffa9;
+        }
+        li:last-child::after{
+            content: ""
         }
     }
 }
