@@ -5,7 +5,9 @@ $breakpoint-mobile: 448px; //> 447 253h t 32p else 16p
 $breakpoint-s-mobile: 406px; //> 285h
 $breakpoint-xs-mobile: 340px;
 $font-color: #FFFFFF;
-$font-color-darker: var(--ktl-font-family-inter);  //> 288h
+$font-color-darker: var(--ktl-font-family-inter);
+$font-color-darkest: #8d9485; //> 288h
+$font-size-license: 13px;
 // < 340  308h
 
 .footer{
@@ -98,5 +100,25 @@ $font-color-darker: var(--ktl-font-family-inter);  //> 288h
         li:last-child::after{
             content: ""
         }
+    }
+    &__license-and-support-container{
+        display: flex;
+        flex-wrap: wrap;
+        @media (min-width: $breakpoint-tablet) {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+    }
+    &__kotlin-license{
+        font-size: $font-size-license;
+        color: $font-color-darkest;
+        a{
+            color: $font-color-darker;
+        }
+    }
+    &__support{
+        @extend .footer__kotlin-license;
+        text-align: right;
     }
 }

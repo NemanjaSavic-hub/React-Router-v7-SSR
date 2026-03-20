@@ -51,8 +51,8 @@ export default function Footer() {
             <YoutubeIcon color="white" />
           </a>
         </div>
-
       </div>
+
       <nav className="footer__nav-container">
         <ul className="footer__ul">
           {listOfLinks.map(footerLink => <li>
@@ -66,9 +66,24 @@ export default function Footer() {
             </span>
           </li>)}
         </ul>
-
       </nav>
-      <div>
+
+      <div className="footer__license-and-support-container">
+        <div className="footer__kotlin-license">
+          Kotlin™ is&nbsp;protected under the <a className={textCn('rs-link')}
+           href="https://kotlinlang.org/foundation/kotlin-foundation.html"
+           >Kotlin&nbsp;Foundation</a> and licensed under the <a className={textCn('rs-link')}
+            target="_blank" href="https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE">
+              Apache 2&nbsp;license</a>.
+        </div>
+
+        <div className="footer__support">
+          <div className="ktl-footer-module_motto_22kgv">
+            Supported and developed by&nbsp;
+              <a className={textCn('rs-link')} href="https://www.jetbrains.com/" target="_blank">
+                JetBrains</a>
+          </div>
+        </div>
 
       </div>
       <a>
