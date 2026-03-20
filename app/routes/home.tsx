@@ -16,6 +16,7 @@ import { UsageSection } from "~/components/UsageSection/UsageSection";
 import type { Testimonial } from "~/models/Testimonial";
 import { StartSection } from "~/components/StartSection/StartSection";
 import HeaderNav from "~/components/HeaderNav/HeaderNav";
+import Footer from "~/components/Footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -54,6 +55,7 @@ export default function Home() {
       </WhyKotlinSection>
       <UsageSection testimonials={loaderData.testimonials}/>
       <StartSection/>
+      <Footer/>
     </div>
   </ThemeProvider>
   )
