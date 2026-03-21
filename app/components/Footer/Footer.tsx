@@ -5,25 +5,26 @@ import SlackIcon from "../../../assets/images/socials/slack.svg?react";
 import StackOverflowIcon from "../../../assets/images/socials/stack-overflow.svg?react";
 import TwitterIcon from "../../../assets/images/socials/twitter.svg?react";
 import YoutubeIcon from "../../../assets/images/socials/youtube.svg?react";
+import jetbrainsLogo from '../../../assets/images/logos/jetbrains-logo.svg';
 import { useTextStyles } from '@rescui/typography';
 import cn from 'classnames';
 
-interface FooterLink{name: string, link: string}
+interface FooterLink { name: string, link: string }
 
- const listOfLinks: FooterLink[] = [
-  {name: "Contributing to Kotlin", link: "https://kotlinlang.org/docs/contribute.html?_gl=1*163dd5y*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMDg0MDQkbzE1JGcwJHQxNzc0MDA4NDA0JGo2MCRsMCRoMA.."},
-  {name: "Releases", link: "https://kotlinlang.org/docs/releases.html?_gl=1*1wacns4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Press Kit", link: "https://kotlinlang.org/assets/kotlin-media-kit.pdf?_gl=1*167jnf8*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Security", link: "https://kotlinlang.org/docs/security.html?_gl=1*bri7t0*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Blog", link: "https://blog.jetbrains.com/kotlin/?_gl=1*iyq0c4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Issue Tracker", link: "https://youtrack.jetbrains.com/issues/KT?_gl=1*iyq0c4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Brands Assets", link: "https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip?_gl=1*1xtj4k5*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.."},
-  {name: "Careers", link: "https://job-boards.eu.greenhouse.io/jetbrains?_gl=1*ki6gzp*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA..&team=Kotlin"}
+const listOfLinks: FooterLink[] = [
+  { name: "Contributing to Kotlin", link: "https://kotlinlang.org/docs/contribute.html?_gl=1*163dd5y*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMDg0MDQkbzE1JGcwJHQxNzc0MDA4NDA0JGo2MCRsMCRoMA.." },
+  { name: "Releases", link: "https://kotlinlang.org/docs/releases.html?_gl=1*1wacns4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Press Kit", link: "https://kotlinlang.org/assets/kotlin-media-kit.pdf?_gl=1*167jnf8*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Security", link: "https://kotlinlang.org/docs/security.html?_gl=1*bri7t0*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Blog", link: "https://blog.jetbrains.com/kotlin/?_gl=1*iyq0c4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Issue Tracker", link: "https://youtrack.jetbrains.com/issues/KT?_gl=1*iyq0c4*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Brands Assets", link: "https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip?_gl=1*1xtj4k5*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA.." },
+  { name: "Careers", link: "https://job-boards.eu.greenhouse.io/jetbrains?_gl=1*ki6gzp*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwMzQzMDgkbzE2JGcwJHQxNzc0MDM0MzA4JGo2MCRsMCRoMA..&team=Kotlin" }
 ]
 export default function Footer() {
   // const list: React.FunctionComponent<React.SVGProps<SVGSVGElement>>[] = [GithubIcon, RedditIcon, SlackIcon, StackOverflowIcon, TwitterIcon, YoutubeIcon]
   const textCn = useTextStyles();
- 
+
   return (
     <div className="footer">
       <div className="footer__container-first-row">
@@ -55,7 +56,7 @@ export default function Footer() {
 
       <nav className="footer__nav-container">
         <ul className="footer__ul">
-          {listOfLinks.map(footerLink => <li>
+          {listOfLinks.map(footerLink => <li key={footerLink.name}>
             <span className={cn(textCn('rs-text-2'))}>
               <a
                 href={footerLink.link}
@@ -71,23 +72,23 @@ export default function Footer() {
       <div className="footer__license-and-support-container">
         <div className="footer__kotlin-license">
           Kotlin™ is&nbsp;protected under the <a className={textCn('rs-link')}
-           href="https://kotlinlang.org/foundation/kotlin-foundation.html"
-           >Kotlin&nbsp;Foundation</a> and licensed under the <a className={textCn('rs-link')}
+            href="https://kotlinlang.org/foundation/kotlin-foundation.html"
+          >Kotlin&nbsp;Foundation</a> and licensed under the <a className={textCn('rs-link')}
             target="_blank" href="https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE">
-              Apache 2&nbsp;license</a>.
+            Apache 2&nbsp;license</a>.
         </div>
 
         <div className="footer__support">
           <div className="ktl-footer-module_motto_22kgv">
             Supported and developed by&nbsp;
-              <a className={textCn('rs-link')} href="https://www.jetbrains.com/" target="_blank">
-                JetBrains</a>
+            <a className={textCn('rs-link')} href="https://www.jetbrains.com/" target="_blank">
+              JetBrains</a>
           </div>
         </div>
 
       </div>
-      <a>
-
+      <a className="footer__logo">
+        <img src={jetbrainsLogo} alt=""></img>
       </a>
     </div>
   )

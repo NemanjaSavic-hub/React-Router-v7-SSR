@@ -2,7 +2,7 @@ import Button from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import { cardCn } from "@rescui/card/lib/index.js";
 import cn from 'classnames';
-import jetbrainsLogo from '../../../assets/images/logos/jetbrains-logo.svg'
+import jetbrainsLogo from '../../../assets/images/logos/jetbrains-logo.svg';
 
 import './index.scss';
 import { Section, Container } from '../layout';
