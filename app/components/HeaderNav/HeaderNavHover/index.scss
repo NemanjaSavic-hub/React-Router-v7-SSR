@@ -1,0 +1,26 @@
+.dropdown-list{
+    position: absolute;
+    top: 68px;
+    border: 1px solid rgba(255, 255, 255, 0.432);
+    
+    background-color: #27282c;
+    z-index: 999;
+
+    &__div_option{
+        padding-inline: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        padding-block: 8px;
+    }
+    &__div_option:hover{
+        color: white;
+        box-shadow: 0 0 10px 100px rgba(255, 255, 255, 0.1) inset;
+    }
+}
+.dropdown-list__left{
+    @extend .dropdown-list;
+    left: 0px;
+}
+.dropdown-list__right{
+    @extend .dropdown-list;
+    right: 0px
+}

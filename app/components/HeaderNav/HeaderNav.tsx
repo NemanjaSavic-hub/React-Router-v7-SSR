@@ -1,9 +1,40 @@
+import HeaderNavHover from "./HeaderNavHover/HeaderNavHover";
 import "./index.scss";
 import { useEffect, useState } from "react";
-const navList = ["Solutions", "Docs", "Community", "Teach", "Play"]
+const navListLinksSolutions = ["/lp/mobile/", "/docs/multiplatform.html", "/lp/server-side/", "/docs/js-overview.html", "/docs/data-science-overview.html", "/docs/android-overview.html"];
+const navListLinksPlay = ["https://play.kotlinlang.org/?_gl=1*3vg991*_gcl_au*MjU5MDc5OTgzLjE3NzM1ODA4MjU.*_ga*MTUxMDk5MzY1Mi4xNzczNTgwODI2*_ga_9J976DJZ68*czE3NzQwODk3MTQkbzIyJGcxJHQxNzc0MDkxOTIyJGo2MCRsMCRoMA..#eyJ2ZXJzaW9uIjoiMi4zLjIwIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgcHJpbnRsbihcIkhlbGxvLCB3b3JsZCEhIVwiKVxufSJ9",
+     "https://kotlinlang.org/docs/kotlin-hands-on.html", "https://kotlinlang.org/docs/kotlin-tour-welcome.html",
+      "https://play.kotlinlang.org/koans/overview"];
+const navList : HeaderNavListItem[] = [
+        {name: "Solutions",  content: ["Multiplatform mobile", "Multiplatform for other platforms", "Server-side",
+                                 "Web frontend","Data science", "Android"], navLinks: navListLinksSolutions }, 
+        {name: "Docs", content: "/docs/home.html"}, 
+        {name: "Community", content: "/community/"},
+        {name: "Teach", content: "/education/"}, 
+        {name: "Play", content: ["Playground", "Hands-on", "Examples", "Koans"], navLinks: navListLinksPlay}] 
 
+
+interface HeaderNavListItem{
+    name: string,
+    content: string[] | string,
+    navLinks?: string[]
+}
 export default function HeaderNav() {
     const [isMobile, setIsMobile] = useState<boolean | null>(null);
+    const [hoveredOn, setHoveredOn] = useState<HeaderNavListItem | null>(null)
+    const getHeaderNavHover = (item: HeaderNavListItem, leftOrRight: "left" | "right") => {
+        if(Array.isArray(item.content)){
+            if(hoveredOn === item && item.navLinks)
+                return <HeaderNavHover listItems={item.content} classname={leftOrRight} navLinks={item.navLinks}/>
+        }
+    }
+    const onMouseOver = (item: HeaderNavListItem) => {
+        setHoveredOn(item);
+    }
+
+    const onMouseOut = () => {
+        setHoveredOn(null);
+    }
 
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 720);
@@ -26,13 +57,19 @@ export default function HeaderNav() {
                 <a className="header-nav__a rs-text-3_theme_dark .rs-text-3" href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20" target="_blank">v1.6.20</a>
             </div>
 
-            <nav className="header-nav__nav">
-                {navList.map(field =>
-                    <ul key={field} className="header-nav__ul">
-                        <li className="">
-                            <a className="rs-text-2 rs-text-2_theme_dark">{field}</a>
-                        </li>
-                    </ul>)}
+            <nav >
+                    <ul className="header-nav__nav">
+                        {navList.map((field, i) =><li key={field.name} className="">
+                            {typeof field.content === "string" ?
+                            <a className="rs-text-2 rs-text-2_theme_dark" href={field.content}>{field.name}</a>
+                            : <span className="rs-text-2 rs-text-2_theme_dark" 
+                            onMouseOver={() => onMouseOver(field)}
+                            onMouseOut={() => onMouseOut()}
+                            >{field.name}{i < navList.length / 2 ? getHeaderNavHover(field, "left")
+                                : getHeaderNavHover(field, "right")
+                            }</span>}
+                        </li>)}
+                    </ul>
             </nav>
             
             {isMobile && <button type="button" className="header-nav__button">
