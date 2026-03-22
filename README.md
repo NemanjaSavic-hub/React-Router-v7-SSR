@@ -16,11 +16,18 @@ A modern, production-ready template for building full-stack React applications u
 
 ## Getting Started
 
+### Cloning the repository
+
+```bash
+git clone "https://github.com/NemanjaSavic-hub/React-Router-v7-SSR.git"
+```
+
 ### Installation
 
 Install the dependencies:
 
 ```bash
+cd React-Router-v7-SSR
 npm install
 ```
 
